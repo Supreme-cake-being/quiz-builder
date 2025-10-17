@@ -23,7 +23,7 @@ export default function QuizListPage() {
       const data = await res.json();
       setQuizzes(data);
     } catch (err) {
-      setError(err.message);
+      if (err instanceof Error) setError(err.message);
     } finally {
       setLoading(false);
     }
